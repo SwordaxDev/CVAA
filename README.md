@@ -49,7 +49,7 @@ fetch("https://raw.githubusercontent.com/SwordaxDev/CVAA/main/index.js")
 
 ## Handle Errors
 You might occasionally face some errors and unexpected actions, such as the 
-software not running properly or the videos not running. Something you could do 
+software not running properly or the videos not playing. Something you could do 
 that might sometimes fix such issues is refreshing the page and trying again.
 
 The software might not run properly if the collegeboard assignments looked 
