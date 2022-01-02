@@ -37,9 +37,9 @@ collegeboard AP courses, and makes sure all the assigned videos are completed.
  3. Select the console tab in the devtools
  4. Paste the following code in the console
 ```js
-	fetch("https://raw.githubusercontent.com/SwordaxDev/CVAA/main/index.js")
-	.then(res => res.text())
-	.then(data => eval(data));
+fetch("https://raw.githubusercontent.com/SwordaxDev/CVAA/main/index.js")
+.then(res => res.text())
+.then(data => eval(data));
 ```
  5. Press Enter
  6. Have fun till all assignments are completed :)
