@@ -19,7 +19,7 @@ collegeboard AP courses, and makes sure all the assigned videos are completed.
 
  - Finds the oldest un-completed video assignment in the assignments list
  - Selects the assignment and sets the video speed to x2
- - Runs the video when loaded
+ - Plays the video when loaded
  - As video ends, selects the next un-completed video assignment and triggers it
  - As videos complete, CVAA keeps logging updates in the page devtools console
  - When all assigned videos are automatically triggered and completed on max speed, CVAA ends task
