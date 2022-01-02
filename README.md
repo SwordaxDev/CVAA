@@ -58,7 +58,7 @@ something like this:
 ![invalid example 1](/docs/invalid-example-1.png)
 ![invalid example 2](/docs/invalid-example-2.png)
 <br><br>
-Try resizing the browser window or use a larger device screen then refresh your 
+Try resizing the browser window or use a device with a larger screen then refresh your 
 window, if your assignments now look like this, then you are good to go!
 <br><br>
 ![valid example](/docs/valid-example.png)
