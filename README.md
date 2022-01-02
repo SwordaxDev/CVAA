@@ -52,11 +52,13 @@ that might sometimes fix such issues is refreshing the page and trying again.
 
 The software might not run properly if the collegeboard assignments looked 
 something like this:
+<br>
 ![invalid example 1](/docs/invalid-example-1.png)
 ![invalid example 2](/docs/invalid-example-2.png)
 <br>
 Try resizing the browser window or use a larger device screen then refresh your 
 window, if your assignments now look like this, then you are good to go!
+<br>
 ![valid example](/docs/valid-example.png)
 <br>
 ***Please note that fixing this issue will be a priority update for future versions of the software***
