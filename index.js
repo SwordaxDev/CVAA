@@ -223,7 +223,9 @@
                 playBtn.click();
                 // check if video finished
                 let videoGetter = setInterval(() => {
-                  let videoEl = document.querySelector(".w-video-wrapper video");
+                  let videoEl = document.querySelector(
+                    ".w-video-wrapper video"
+                  );
                   if (videoEl) {
                     clearInterval(videoGetter);
                     videoEl.onended = () => {
@@ -255,7 +257,6 @@
     );
     return videoPlaying;
   }
-  
 
   // as program runs, log success message
   console.log(
