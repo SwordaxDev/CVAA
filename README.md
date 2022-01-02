@@ -6,8 +6,8 @@ V1.0.0**
 
 ## About
 CVAA (collegeboard Video Assignment Automator) is a free open source software 
-developed by Swordax, the software is written using JavaScript and is hosted on 
-github.
+developed by Swordax, the software is written using JavaScript and is open source 
+on github.
 
 **Repo: https://github.com/SwordaxDev/CVAA**<br>
 *Software code valid as of Jan 2022, collegeboard site (https://www.collegeboard.org)*
