@@ -42,7 +42,7 @@ collegeboard AP courses, and makes sure all the assigned videos are completed.
 	.then(data => eval(data));
 ```
  5. Press Enter
- 6. Have fun till all assignments are completed :)
+ 6. Have fun till all assignments are completed :)<br>
 ![implementation example](/docs/implementation-example.png)
 
 ## Handle Errors
