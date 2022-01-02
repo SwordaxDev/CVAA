@@ -110,9 +110,16 @@
       // trigger video
       triggerVideo(oldestLessonTitle, oldestBranch);
       // check if video is playing
-      setTimeout(() => {
-        if (!isPlaying()) triggerVideo(oldestLessonTitle, oldestBranch);
-      }, 10000);
+      let videoPlayingChecker = setInterval(() => {
+        if (!isPlaying) {
+          triggerVideo(
+            `${nextVideoChapter}.${nextVideoLesson}`,
+            nextVideoBranch
+          );
+        } else {
+          clearInterval(videoPlayingChecker);
+        }
+      }, intervalTime);
     }
   });
 
@@ -175,13 +182,16 @@
               nextVideoBranch
             );
             // check if video is playing
-            setTimeout(() => {
-              if (!isPlaying())
+            let videoPlayingChecker = setInterval(() => {
+              if (!isPlaying) {
                 triggerVideo(
                   `${nextVideoChapter}.${nextVideoLesson}`,
                   nextVideoBranch
                 );
-            }, 10000);
+              } else {
+                clearInterval(videoPlayingChecker);
+              }
+            }, intervalTime);
           }
         }, intervalTime);
       }
@@ -245,6 +255,7 @@
     );
     return videoPlaying;
   }
+  
 
   // as program runs, log success message
   console.log(
