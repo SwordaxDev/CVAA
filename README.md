@@ -64,3 +64,11 @@ window, if your assignments now look like this, then you are good to go!
 ![valid example](/docs/valid-example.png)
 <br><br>
 ***Please note that fixing this issue will be a priority update for future versions of the software***
+
+## Report Bugs
+If you encountered any bug while using the software (other than the issues mentioned 
+in the handle errors section) then don't hesitate to report them to me directly by messaging 
+me on discord, find me as Swordax#5756
+<center>
+<img alt="Discord Logo" src="/docs/discord-logo.png" width="100">
+</center>
