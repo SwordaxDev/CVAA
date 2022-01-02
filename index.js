@@ -4,8 +4,9 @@
     Developed by Swordax
     - my website: https://swordax.netlify.app/
     - my github: https://github.com/SwordaxDev/
-    - my discord: https://discord.com/users/465453058667839499/
-  */
+    - my discord (Swordax#5756): https://discord.com/users/465453058667839499/
+    - project repo: https://github.com/SwordaxDev/CVAA
+	*/
 
   // code valid as of Jan 2022 collegeboard site (collegeboard.org)
 
@@ -14,7 +15,7 @@
   const lessonsTitles = document.querySelectorAll(
     ".StudentAssignments .assignment_title"
   );
-  const intervalTime = 300;
+  const intervalTime = 500;
   let oldestBranch = (latestBranch = lessons = null);
   const logStyle = (color) => {
     return `font-size:20px;color:${color};`;
@@ -108,6 +109,10 @@
       title.click();
       // trigger video
       triggerVideo(oldestLessonTitle, oldestBranch);
+      // check if video is playing
+      setTimeout(() => {
+        if (!isPlaying()) triggerVideo(oldestLessonTitle, oldestBranch);
+      }, 10000);
     }
   });
 
@@ -169,6 +174,14 @@
               `${nextVideoChapter}.${nextVideoLesson}`,
               nextVideoBranch
             );
+            // check if video is playing
+            setTimeout(() => {
+              if (!isPlaying())
+                triggerVideo(
+                  `${nextVideoChapter}.${nextVideoLesson}`,
+                  nextVideoBranch
+                );
+            }, 10000);
           }
         }, intervalTime);
       }
@@ -193,26 +206,44 @@
             clearInterval(speedClicker);
             speedBtn.click();
             // play current video
-            document.querySelector("[title='Play Video']").click();
-            // check if video finished
-            let videoGetter = setInterval(() => {
-              let videoEl = document.querySelector("[aria-label='Video']");
-              if (videoEl) {
-                clearInterval(videoGetter);
-                videoEl.onended = () => {
-                  console.log(
-                    `%cCVAA: Lesson ${lessonTitle} Daily Video ${lessonBranch} is successfully completed at ${gimmeTime()}!`,
-                    logStyle("lime")
-                  );
-                  // open the next video assignment
-                  openNext();
-                };
+            let videoPlayer = setInterval(() => {
+              let playBtn = document.querySelector("[title='Play Video']");
+              if (playBtn) {
+                clearInterval(videoPlayer);
+                playBtn.click();
+                // check if video finished
+                let videoGetter = setInterval(() => {
+                  let videoEl = document.querySelector(".w-video-wrapper video");
+                  if (videoEl) {
+                    clearInterval(videoGetter);
+                    videoEl.onended = () => {
+                      console.log(
+                        `%cCVAA: Lesson ${lessonTitle} Daily Video ${lessonBranch} is successfully completed at ${gimmeTime()}!`,
+                        logStyle("lime")
+                      );
+                      // open the next video assignment
+                      openNext();
+                    };
+                  }
+                }, intervalTime);
               }
             }, intervalTime);
           }
         }, intervalTime);
       }
     }, intervalTime);
+  }
+
+  // check if video is playing
+  function isPlaying() {
+    let videoEl = document.querySelector(".w-video-wrapper video");
+    let videoPlaying = !!(
+      videoEl.currentTime > 0 &&
+      !videoEl.paused &&
+      !videoEl.ended &&
+      videoEl.readyState > 2
+    );
+    return videoPlaying;
   }
 
   // as program runs, log success message
