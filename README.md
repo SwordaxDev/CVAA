@@ -42,7 +42,7 @@ collegeboard AP courses, and makes sure all the assigned videos are completed.
 	.then(data => eval(data));
 ```
  5. Press Enter
- 6. Have fun till all assignments are completed :)<br>
+ 6. Have fun till all assignments are completed :)<br><br>
 ![implementation example](/docs/implementation-example.png)
 
 ## Handle Errors
@@ -52,13 +52,13 @@ that might sometimes fix such issues is refreshing the page and trying again.
 
 The software might not run properly if the collegeboard assignments looked 
 something like this:
-<br>
+<br><br>
 ![invalid example 1](/docs/invalid-example-1.png)
 ![invalid example 2](/docs/invalid-example-2.png)
-<br>
+<br><br>
 Try resizing the browser window or use a larger device screen then refresh your 
 window, if your assignments now look like this, then you are good to go!
-<br>
+<br><br>
 ![valid example](/docs/valid-example.png)
-<br>
+<br><br>
 ***Please note that fixing this issue will be a priority update for future versions of the software***
