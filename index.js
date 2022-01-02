@@ -1,20 +1,24 @@
 (() => {
   /*
-			CVAA (Collegeboard Video Assignment Automater)
-			Written by Swordax
-			- my website: https://swordax.netlify.app/
-			- my github: https://github.com/SwordaxDev/
-			- my discord: https://discord.com/users/465453058667839499/
+    CVAA (Collegeboard Video Assignment Automator) (V1.0.0)
+    Developed by Swordax
+    - my website: https://swordax.netlify.app/
+    - my github: https://github.com/SwordaxDev/
+    - my discord: https://discord.com/users/465453058667839499/
 	*/
 
   // code valid as of Jan 2022 collegeboard site (collegeboard.org)
 
   // variables
+  const CVAA_VERSION = "1.0.0";
   const lessonsTitles = document.querySelectorAll(
     ".StudentAssignments .assignment_title"
   );
   const intervalTime = 300;
-  let oldestBranch = lessons = null;
+  let oldestBranch = (latestBranch = lessons = null);
+  const logStyle = (color) => {
+    return `font-size:20px;color:${color};`;
+  };
 
   // get current time and format it (hh:mm)
   function gimmeTime() {
@@ -37,6 +41,14 @@
     return `${gimmeHour()}:${gimmeMinute()} ${gimmeNoon()}`;
   }
 
+  // crop lesson
+  function gimmeCropped(lesson) {
+    return {
+      title: lesson.substring(0, lesson.lastIndexOf(".")),
+      branch: lesson.substring(lesson.lastIndexOf(".") + 1),
+    };
+  }
+
   // get oldest un-finished assignment
   const gimmeLesson = (state) => {
     let oldestChapter = (oldestLesson = latestChapter = latestLesson = null);
@@ -47,33 +59,43 @@
       let lessonName = title.innerText;
       let lessonNum = lessonName.split(":")[0];
       let lessonBranch = lessonName.split(":")[1].replace(" Daily Video ", "");
-      lessons.push([lessonNum, lessonBranch]);
+      lessons.push(`${lessonNum}.${lessonBranch}`);
     });
     // get oldest and latest chapter
     lessons.forEach((lesson) => {
-      let chapNum = parseInt(lesson[0].split(".")[0]);
+      let croppedLesson = gimmeCropped(lesson).title.split(".");
+      let chapNum = parseInt(croppedLesson[0]);
       if (!oldestChapter || chapNum < oldestChapter) oldestChapter = chapNum;
       if (!latestChapter || chapNum > latestChapter) latestChapter = chapNum;
     });
     // get oldest and latest lesson
     lessons.forEach((lesson) => {
-      let lessonNum = parseInt(lesson[0].split(".")[1]);
-      if (lesson[0].split(".")[0] == oldestChapter) {
+      let croppedLesson = gimmeCropped(lesson).title.split(".");
+      let chapNum = croppedLesson[0];
+      let lessonNum = parseInt(croppedLesson[1]);
+      if (chapNum == oldestChapter) {
         if (!oldestLesson || lessonNum < oldestLesson) oldestLesson = lessonNum;
-      } else if (lesson[0].split(".")[0] == latestChapter) {
+      } else if (chapNum == latestChapter) {
         if (!latestLesson || lessonNum > latestLesson) latestLesson = lessonNum;
       }
     });
-    // get oldest branch
+    // get oldest and latest branch
     lessons.forEach((lesson) => {
-      if (lesson[0] == `${oldestChapter}.${oldestLesson}`) {
-        if (!oldestBranch || lesson[1] < oldestBranch) oldestBranch = lesson[1];
+      let { title, branch } = gimmeCropped(lesson);
+      if (title == `${oldestChapter}.${oldestLesson}`) {
+        if (!oldestBranch || branch < oldestBranch) oldestBranch = branch;
+      } else if (title == `${latestChapter}.${latestLesson}`) {
+        if (!latestBranch || branch > latestBranch) latestBranch = branch;
       }
     });
     // return latest/oldest un-finished video assignment identification/name
     if (state == "latest") return `${latestChapter}.${latestLesson}`;
     else if (state == "oldest") return `${oldestChapter}.${oldestLesson}`;
-    else return console.log("CVAA ERROR: gimmeLesson() state is undefined");
+    else
+      return console.log(
+        "%cCVAA ERROR: gimmeLesson() state is undefined",
+        logStyle("crimson")
+      );
   };
 
   // open oldest video assignment
@@ -90,7 +112,7 @@
   });
 
   // open next video assignment
-	let incBy = 1;
+  let incBy = 1;
   function openNext() {
     // get indexes and next video
     let currentIndex = document
@@ -102,10 +124,10 @@
       // get lesson names sauses
       let nextVideoFullTitle =
         nextVideo.querySelector(".ft-video-title").innerText;
-      let nextVideoBranch = nextVideoFullTitle
-        .split(":")[1]
-        .replace(" Daily Video ", "");
-      let nextVideoTitle = nextVideoFullTitle.split(":")[0].split("."),
+      let nextVideoBranch = parseInt(
+          nextVideoFullTitle.split(":")[1].replace(" Daily Video ", "")
+        ),
+        nextVideoTitle = nextVideoFullTitle.split(":")[0].split("."),
         latestVideoTitle = gimmeLesson("latest").split(".");
       // parse destructured sauses
       let nextVideoChapter = parseInt(nextVideoTitle[0]),
@@ -116,21 +138,27 @@
       if (
         nextVideoChapter > latestVideoChapter ||
         (nextVideoChapter == latestVideoChapter &&
-          nextVideoLesson > latestVideoLesson)
+          nextVideoLesson > latestVideoLesson) ||
+        (nextVideoChapter == latestVideoChapter &&
+          nextVideoLesson == latestVideoLesson &&
+          nextVideoBranch > latestBranch)
       ) {
         console.log(
           `%cCVAA: Congrats! all video assignments are completed at ${gimmeTime()}`,
-          "font-size:20px;color:lime;"
+          logStyle("lime")
         );
       } else {
-				// check if video required
-				let videoRequired = lessons.some(el => el[0] == `${nextVideoChapter}.${nextVideoLesson}`);
-				if (!videoRequired) {
-					incBy++;
-					return openNext();
-				} else {
-					incBy = 1;
-				}
+        // check if video required
+        let videoRequired = lessons.some(
+          (el) =>
+            el == `${nextVideoChapter}.${nextVideoLesson}.${nextVideoBranch}`
+        );
+        if (!videoRequired) {
+          incBy++;
+          return openNext();
+        } else {
+          incBy = 1;
+        }
         nextVideo.click();
         // check if next video is selected yet
         let checkVideo = setInterval(() => {
@@ -146,10 +174,7 @@
       }
     } else {
       // if next video was not found, print error
-      console.log(
-        "%cCVAA ERROR: next video not found :(",
-        "font-size:20px;color:crimson;"
-      );
+      console.log("%cCVAA ERROR: next video not found :(", logStyle("crimson"));
     }
   }
 
@@ -169,21 +194,21 @@
             speedBtn.click();
             // play current video
             document.querySelector("[title='Play Video']").click();
-						// check if video finished
-						let videoGetter = setInterval(() => {
-							let videoEl = document.querySelector("[aria-label='Video']");
-							if (videoEl) {
-								clearInterval(videoGetter);
-								videoEl.onended = () => {
-									console.log(
-										`%cCVAA: Lesson ${lessonTitle} Daily Video ${lessonBranch} is successfully completed at ${gimmeTime()}!`,
-										"font-size:20px;color:lime"
-									);
-									// open the next video assignment
-									openNext();
-								};
-							}
-						}, intervalTime);
+            // check if video finished
+            let videoGetter = setInterval(() => {
+              let videoEl = document.querySelector("[aria-label='Video']");
+              if (videoEl) {
+                clearInterval(videoGetter);
+                videoEl.onended = () => {
+                  console.log(
+                    `%cCVAA: Lesson ${lessonTitle} Daily Video ${lessonBranch} is successfully completed at ${gimmeTime()}!`,
+                    logStyle("lime")
+                  );
+                  // open the next video assignment
+                  openNext();
+                };
+              }
+            }, intervalTime);
           }
         }, intervalTime);
       }
@@ -192,16 +217,11 @@
 
   // as program runs, log success message
   console.log(
-    `%cCVAA software running successfully at ${gimmeTime()}`,
-    "font-size:20px;color:lime;"
+    `%cCVAA software version ${CVAA_VERSION} running successfully at ${gimmeTime()}`,
+    logStyle("lime")
+  );
+  console.log(
+    "%cCVAA software developed by Swordax#5756\nGithub: https://github.com/SwordaxDev/",
+    logStyle("cyan")
   );
 })();
-
-/*
-	** TODO
-	- change the method that checks if the video is required to make it able to check video branches too {
-		plan is to save the listed required videos in lessons array as the following format : chapter.lesson.branch instead of the 
-		current format : [chapter.lesson, branch]
-		that will enable us from checking for the exact branch existance in the required videos list.
-	}
-*/
