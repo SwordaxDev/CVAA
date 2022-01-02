@@ -6,6 +6,7 @@
     - my github: https://github.com/SwordaxDev/
     - my discord (Swordax#5756): https://discord.com/users/465453058667839499/
     - project repo: https://github.com/SwordaxDev/CVAA
+    - current code production date: 3 Jan, 2022
 	*/
 
   // code valid as of Jan 2022 collegeboard site (collegeboard.org)
@@ -41,6 +42,16 @@
     };
     return `${gimmeHour()}:${gimmeMinute()} ${gimmeNoon()}`;
   }
+
+  // as program runs, log success message
+  console.log(
+    `%cCVAA software version ${CVAA_VERSION} running successfully at ${gimmeTime()}`,
+    logStyle("lime")
+  );
+  console.log(
+    "%cCVAA software developed by Swordax#5756\nGithub: https://github.com/SwordaxDev/\nSoftware Repo: https://github.com/SwordaxDev/CVAA",
+    logStyle("cyan")
+  );
 
   // crop lesson
   function gimmeCropped(lesson) {
@@ -98,6 +109,17 @@
         logStyle("crimson")
       );
   };
+
+  // check if no videos are assigned
+  let assignmentsFound = false;
+  lessonsTitles.forEach((title) => {
+    if (title.innerText.includes("Daily Video")) assignmentsFound = true;
+  });
+  if (!assignmentsFound)
+    return console.log(
+      "%cCVAA: No video assignments found",
+      logStyle("yellow")
+    );
 
   // open oldest video assignment
   lessonsTitles.forEach((title) => {
@@ -257,14 +279,4 @@
     );
     return videoPlaying;
   }
-
-  // as program runs, log success message
-  console.log(
-    `%cCVAA software version ${CVAA_VERSION} running successfully at ${gimmeTime()}`,
-    logStyle("lime")
-  );
-  console.log(
-    "%cCVAA software developed by Swordax#5756\nGithub: https://github.com/SwordaxDev/",
-    logStyle("cyan")
-  );
 })();
