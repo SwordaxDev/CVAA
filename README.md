@@ -37,13 +37,13 @@ collegeboard AP courses, and makes sure all the assigned videos are completed.
  3. Select the console tab in the devtools
  4. Paste the following code in the console
 ```js
-fetch("https://raw.githubusercontent.com/SwordaxDev/CVAA/main/index.js")
-.then(res => res.text())
-.then(data => eval(data));
+	fetch("https://raw.githubusercontent.com/SwordaxDev/CVAA/main/index.js")
+	.then(res => res.text())
+	.then(data => eval(data));
 ```
  5. Press Enter
  6. Have fun till all assignments are completed :)
-![docs image 1](/docs/image1.png)
+![implementation example](/docs/implementation-example.png)
 
 ## Handle Errors
 You might occasionally face some errors and unexpected actions, such as the 
@@ -51,9 +51,10 @@ software not running properly or the videos not running. Something you could do
 that might sometimes fix such issues is refreshing the page and trying again.
 
 The software might not run properly if the collegeboard assignments looked 
-something like this: 
-![docs image2](/docs/image2.png)
-![docs image3](/docs/image3.png)
+something like this:
+![invalid example 1](/docs/invalid-example-1.png)
+![invalid example 2](/docs/invalid-example-2.png)
 Try resizing the browser window or use a larger device screen then refresh your 
 window, if your assignments now look like this, then you are good to go!
-![docs image4](/docs/image4.png)
+![valid example](/docs/valid-example.png)
+***Please note that fixing this issue will be a priority update for future versions of the software***
