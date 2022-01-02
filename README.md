@@ -44,7 +44,7 @@ fetch("https://raw.githubusercontent.com/SwordaxDev/CVAA/main/index.js")
 .then(data => eval(data));
 ```
  5. Press Enter
- 6. Have fun till all assignments are completed :)<br><br>
+ 6. Leave the window opened and have fun till all assignments are completed :)<br><br>
 ![implementation example](/docs/implementation-example.png)
 
 ## Handle Errors
