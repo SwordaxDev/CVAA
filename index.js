@@ -5,7 +5,7 @@
     - my website: https://swordax.netlify.app/
     - my github: https://github.com/SwordaxDev/
     - my discord: https://discord.com/users/465453058667839499/
-	*/
+  */
 
   // code valid as of Jan 2022 collegeboard site (collegeboard.org)
 
