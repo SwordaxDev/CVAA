@@ -12,7 +12,7 @@ github.
 **Repo: https://github.com/SwordaxDev/CVAA**<br>
 *Software code valid as of Jan 2022, collegeboard site (https://www.collegeboard.org)*
 
-CVAA when ran in the console automates running the video assignments on 
+CVAA when ran in the console, automates running the video assignments on 
 collegeboard AP courses, and makes sure all the assigned videos are completed.
 
 ## Mechanism
