@@ -27,12 +27,12 @@ const info = {
     ],
     "3 Jan, 2022": [
       "Fixed a bug that could cause inaccurate action logging in the console",
-      "Created an info file and imported it in index.js to use the version number defined in it",
+      "Created an info file",
       "Published V1.0.1"
     ]
   },
   project_versions: {
     "V1.0.0": "First publish and initial version of the project",
-    "V1.0.1": "Fixed a bug and provided developer testing features"
+    "V1.0.1": "Fixed a bug created an info file"
   }
 }
