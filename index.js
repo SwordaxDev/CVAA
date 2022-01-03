@@ -1,6 +1,6 @@
 (() => {
   /*
-    CVAA (Collegeboard Video Assignment Automator) (V1.0.0)
+    CVAA (Collegeboard Video Assignment Automator)
     Developed by Swordax
     - my website: https://swordax.netlify.app/
     - my github: https://github.com/SwordaxDev/
@@ -12,7 +12,8 @@
   // code valid as of Jan 2022 collegeboard site (collegeboard.org)
 
   // variables
-  const CVAA_VERSION = "1.0.0";
+  import { data } from "./info";
+  const CVAA_VERSION = data.project_info.project_version;
   const lessonsTitles = document.querySelectorAll(
     ".StudentAssignments .assignment_title"
   );
