@@ -12,7 +12,7 @@
   // code valid as of Jan 2022 collegeboard site (collegeboard.org)
 
   // variables
-  const CVAA_VERSION =  "1.0.1";
+  const CVAA_VERSION = "1.0.2";
   const lessonsTitles = document.querySelectorAll(
     ".StudentAssignments .assignment_title"
   );
@@ -52,7 +52,7 @@
   );
   console.log(
     "%cCVAA software developed by Swordax#5756\nGithub: https://github.com/SwordaxDev/\nSoftware Repo: https://github.com/SwordaxDev/CVAA",
-    logStyle("cyan")
+    logStyle("#17c0eb")
   );
 
   // crop lesson
@@ -63,7 +63,7 @@
     };
   }
 
-  // get oldest un-finished assignment
+  // get assignments names and branches
   const gimmeLesson = (state) => {
     let oldestChapter = (oldestLesson = latestChapter = latestLesson = null);
     lessons = [];
@@ -218,10 +218,7 @@
       }
     } else {
       // if next video was not found, print error
-      console.log(
-        "%cCVAA ERROR: next video not found :(",
-        logStyle("crimson")
-      );
+      console.log("%cCVAA ERROR: next video not found :(", logStyle("crimson"));
     }
   }
 
