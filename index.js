@@ -12,13 +12,17 @@
   // code valid as of Jan 2022 collegeboard site (collegeboard.org)
 
   // variables
-  import { data } from "./info";
-  const CVAA_VERSION = data.project_info.project_version;
+  let info = null;
+  import { info as _info } from "./info"; // comment out if testing directly in the console
+  info = _info; // comment out if testing directly in the console
+  const CVAA_VERSION =  info ? info.project_info.project_version : "testing";
   const lessonsTitles = document.querySelectorAll(
     ".StudentAssignments .assignment_title"
   );
   const intervalTime = 500;
   let oldestBranch = (latestBranch = lessons = null);
+
+  // logStyle Provider Function
   const logStyle = (color) => {
     return `font-size:20px;color:${color};`;
   };
@@ -135,10 +139,7 @@
       // check if video is playing
       let videoPlayingChecker = setInterval(() => {
         if (!isPlaying) {
-          triggerVideo(
-            `${nextVideoChapter}.${nextVideoLesson}`,
-            nextVideoBranch
-          );
+          triggerVideo(oldestLessonTitle, oldestBranch);
         } else {
           clearInterval(videoPlayingChecker);
         }
@@ -220,7 +221,10 @@
       }
     } else {
       // if next video was not found, print error
-      console.log("%cCVAA ERROR: next video not found :(", logStyle("crimson"));
+      console.log(
+        "%cCVAA ERROR: next video not found :(",
+        logStyle("crimson")
+      );
     }
   }
 
