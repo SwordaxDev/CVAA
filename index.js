@@ -12,10 +12,7 @@
   // code valid as of Jan 2022 collegeboard site (collegeboard.org)
 
   // variables
-  let info = null;
-  import { info as _info } from "./info"; // comment out if testing directly in the console
-  info = _info; // comment out if testing directly in the console
-  const CVAA_VERSION =  info ? info.project_info.project_version : "testing";
+  const CVAA_VERSION =  "1.0.1";
   const lessonsTitles = document.querySelectorAll(
     ".StudentAssignments .assignment_title"
   );

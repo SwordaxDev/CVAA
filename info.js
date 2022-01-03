@@ -36,5 +36,3 @@ const info = {
     "V1.0.1": "Fixed a bug and provided developer testing features"
   }
 }
-
-export default info;
