@@ -26,7 +26,7 @@ collegeboard AP courses, and makes sure all the assigned videos are completed.
 - As videos complete, CVAA keeps logging updates in the page devtools console
 - When all assigned videos are automatically triggered and completed on max speed, CVAA ends task
 
-## Features
+## Advantages
 
 - Assignments completion automation
 - Max speed performance

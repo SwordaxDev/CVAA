@@ -12,7 +12,7 @@
   // code valid as of Jan 2022 collegeboard site (collegeboard.org)
 
   // variables
-  const CVAA_VERSION = "1.0.2";
+  const CVAA_VERSION = "1.0.3";
   const lessonsTitles = document.querySelectorAll(
     ".StudentAssignments .assignment_title"
   );
@@ -20,8 +20,8 @@
   let oldestBranch = (latestBranch = lessons = null);
 
   // logStyle Provider Function
-  const logStyle = (color) => {
-    return `font-size:20px;color:${color};`;
+  const logStyle = (color, size = 20) => {
+    return `font-size:${size}px;color:${color};`;
   };
 
   // get current time and format it (hh:mm)
@@ -51,9 +51,23 @@
     logStyle("lime")
   );
   console.log(
-    "%cCVAA software developed by Swordax#5756\nGithub: https://github.com/SwordaxDev/\nSoftware Repo: https://github.com/SwordaxDev/CVAA",
-    logStyle("#17c0eb")
+    "%cCVAA software developed by Swordax#5756\n%cGithub: https://github.com/SwordaxDev/\n%cSoftware Repo: https://github.com/SwordaxDev/CVAA",
+    logStyle("#17c0eb"),
+    logStyle("#17c0eb", 14),
+    logStyle("#17c0eb", 14)
   );
+
+  // check if video is playing
+  function isPlaying() {
+    let videoEl = document.querySelector(".w-video-wrapper video");
+    let videoPlaying = !!(
+      videoEl.currentTime > 0 &&
+      !videoEl.paused &&
+      !videoEl.ended &&
+      videoEl.readyState > 2
+    );
+    return videoPlaying;
+  }
 
   // crop lesson
   function gimmeCropped(lesson) {
@@ -134,11 +148,11 @@
       // trigger video
       triggerVideo(oldestLessonTitle, oldestBranch);
       // check if video is playing
-      let videoPlayingChecker = setInterval(() => {
+      let videoChecker = setInterval(() => {
         if (!isPlaying) {
           triggerVideo(oldestLessonTitle, oldestBranch);
         } else {
-          clearInterval(videoPlayingChecker);
+          clearInterval(videoChecker);
         }
       }, intervalTime);
     }
@@ -203,14 +217,14 @@
               nextVideoBranch
             );
             // check if video is playing
-            let videoPlayingChecker = setInterval(() => {
+            let videoChecker = setInterval(() => {
               if (!isPlaying) {
                 triggerVideo(
                   `${nextVideoChapter}.${nextVideoLesson}`,
                   nextVideoBranch
                 );
               } else {
-                clearInterval(videoPlayingChecker);
+                clearInterval(videoChecker);
               }
             }, intervalTime);
           }
@@ -225,22 +239,22 @@
   // trigger video function
   function triggerVideo(lessonTitle = "unknown", lessonBranch = "unknown") {
     // open video settings
-    let settingsOpener = setInterval(() => {
+    let settingsGetter = setInterval(() => {
       let settingsBtn = document.querySelector("[title='Show settings menu']");
       if (settingsBtn) {
-        clearInterval(settingsOpener);
+        clearInterval(settingsGetter);
         settingsBtn.click();
         // set video speed to x2
-        let speedClicker = setInterval(() => {
+        let speedGetter = setInterval(() => {
           let speedBtn = document.querySelector("[for='2x']");
           if (speedBtn) {
-            clearInterval(speedClicker);
+            clearInterval(speedGetter);
             speedBtn.click();
             // play current video
-            let videoPlayer = setInterval(() => {
+            let playBtnGetter = setInterval(() => {
               let playBtn = document.querySelector("[title='Play Video']");
               if (playBtn) {
-                clearInterval(videoPlayer);
+                clearInterval(playBtnGetter);
                 playBtn.click();
                 // check if video finished
                 let videoGetter = setInterval(() => {
@@ -265,17 +279,5 @@
         }, intervalTime);
       }
     }, intervalTime);
-  }
-
-  // check if video is playing
-  function isPlaying() {
-    let videoEl = document.querySelector(".w-video-wrapper video");
-    let videoPlaying = !!(
-      videoEl.currentTime > 0 &&
-      !videoEl.paused &&
-      !videoEl.ended &&
-      videoEl.readyState > 2
-    );
-    return videoPlaying;
   }
 })();
