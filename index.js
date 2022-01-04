@@ -7,7 +7,7 @@
     - my discord (Swordax#5756): https://discord.com/users/465453058667839499/
     - project repo: https://github.com/SwordaxDev/CVAA
     - current code production date: 3 Jan, 2022
-	*/
+  */
 
   // code valid as of Jan 2022 collegeboard site (collegeboard.org)
 
