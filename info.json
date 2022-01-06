@@ -2,11 +2,17 @@
   "project_info": {
     "project_name": "Collegeboard Video Assignment Automator",
     "project_acronym": "CVAA",
-    "project_version": "1.0.3",
+    "project_version": "1.0.4",
     "project_language": "JavaScript",
     "project_dev_start": "31 Dec, 2021",
     "project_dev_end": "2 Jan, 2022",
     "project_dev_duration": "3 days"
+  },
+  "developer_info": {
+    "developer_name": "Swordax",
+    "developer_github": "https://github.com/SwordaxDev/",
+    "developer_discord": "Swordax#5756",
+    "developer_discord_": "https://discord.com/users/465453058667839499/"
   },
   "project_updates": {
     "31 Dec, 2021": [
@@ -42,12 +48,20 @@
       "Fixed a mistake in one of 'project_versions' descriptions",
       "Changes ## Features to ## Advantages in the README.md docs file",
       "Published V1.0.3"
+    ],
+    "5 Jan, 2022": [
+      "Added developer_info property in the info.json file and included developer information",
+      "Re-ordered the code to be more organized",
+      "Grouped the assisting functions together",
+      "Renamed the logStyle() function to be gimmeStyle() function to match other assisting functions naming style",
+      "Published V1.0.4"
     ]
   },
   "project_versions": {
     "V1.0.0": "First publish and initial version of the project [2 Jan, 2022]",
     "V1.0.1": "Fixed a bug and created an info.js file [3 Jan, 2022]",
     "V1.0.2": "Fixed a comment and changed credits log color [3 Jan, 2022]",
-    "V1.0.3": "Made some insignificant fixes/changes in the code and converted info.js to info.json [4 Jan, 2022]"
+    "V1.0.3": "Made some insignificant fixes/changes in the code and converted info.js to info.json [4 Jan, 2022]",
+    "V1.0.4": "Added developer_info in info.json, and re-organized the code [6 Jan, 2022]"
   }
 }

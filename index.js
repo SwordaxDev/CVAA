@@ -6,21 +6,21 @@
     - my github: https://github.com/SwordaxDev/
     - my discord (Swordax#5756): https://discord.com/users/465453058667839499/
     - project repo: https://github.com/SwordaxDev/CVAA
-    - current code production date: 3 Jan, 2022
+    - current code production date: 6 Jan, 2022
   */
 
   // code valid as of Jan 2022 collegeboard site (collegeboard.org)
 
   // variables
-  const CVAA_VERSION = "1.0.3";
+  const CVAA_VERSION = "1.0.4";
   const lessonsTitles = document.querySelectorAll(
     ".StudentAssignments .assignment_title"
   );
   const intervalTime = 500;
   let oldestBranch = (latestBranch = lessons = null);
 
-  // logStyle Provider Function
-  const logStyle = (color, size = 20) => {
+  // gimmeStyle Provider Function
+  const gimmeStyle = (color, size = 20) => {
     return `font-size:${size}px;color:${color};`;
   };
 
@@ -43,30 +43,6 @@
       else return "AM";
     };
     return `${gimmeHour()}:${gimmeMinute()} ${gimmeNoon()}`;
-  }
-
-  // as program runs, log success message
-  console.log(
-    `%cCVAA software version ${CVAA_VERSION} running successfully at ${gimmeTime()}`,
-    logStyle("lime")
-  );
-  console.log(
-    "%cCVAA software developed by Swordax#5756\n%cGithub: https://github.com/SwordaxDev/\n%cSoftware Repo: https://github.com/SwordaxDev/CVAA",
-    logStyle("#17c0eb"),
-    logStyle("#17c0eb", 14),
-    logStyle("#17c0eb", 14)
-  );
-
-  // check if video is playing
-  function isPlaying() {
-    let videoEl = document.querySelector(".w-video-wrapper video");
-    let videoPlaying = !!(
-      videoEl.currentTime > 0 &&
-      !videoEl.paused &&
-      !videoEl.ended &&
-      videoEl.readyState > 2
-    );
-    return videoPlaying;
   }
 
   // crop lesson
@@ -122,9 +98,33 @@
     else
       return console.log(
         "%cCVAA ERROR: gimmeLesson() state is undefined",
-        logStyle("crimson")
+        gimmeStyle("crimson")
       );
   };
+
+  // check if video is playing
+  function isPlaying() {
+    let videoEl = document.querySelector(".w-video-wrapper video");
+    let videoPlaying = !!(
+      videoEl.currentTime > 0 &&
+      !videoEl.paused &&
+      !videoEl.ended &&
+      videoEl.readyState > 2
+    );
+    return videoPlaying;
+  }
+
+  // as program runs, log success message
+  console.log(
+    `%cCVAA software version ${CVAA_VERSION} running successfully at ${gimmeTime()}`,
+    gimmeStyle("lime")
+  );
+  console.log(
+    "%cCVAA software developed by Swordax#5756\n%cGithub: https://github.com/SwordaxDev/\n%cSoftware Repo: https://github.com/SwordaxDev/CVAA",
+    gimmeStyle("#17c0eb"),
+    gimmeStyle("#17c0eb", 14),
+    gimmeStyle("#17c0eb", 14)
+  );
 
   // check if no videos are assigned
   let assignmentsFound = false;
@@ -134,7 +134,7 @@
   if (!assignmentsFound)
     return console.log(
       "%cCVAA: No video assignments found",
-      logStyle("yellow")
+      gimmeStyle("yellow")
     );
 
   // open oldest video assignment
@@ -192,7 +192,7 @@
       ) {
         console.log(
           `%cCVAA: Congrats! all video assignments are completed at ${gimmeTime()}`,
-          logStyle("lime")
+          gimmeStyle("lime")
         );
       } else {
         // check if video required
@@ -232,7 +232,10 @@
       }
     } else {
       // if next video was not found, print error
-      console.log("%cCVAA ERROR: next video not found :(", logStyle("crimson"));
+      console.log(
+        "%cCVAA ERROR: next video not found :(",
+        gimmeStyle("crimson")
+      );
     }
   }
 
@@ -266,7 +269,7 @@
                     videoEl.onended = () => {
                       console.log(
                         `%cCVAA: Lesson ${lessonTitle} Daily Video ${lessonBranch} is successfully completed at ${gimmeTime()}!`,
-                        logStyle("lime")
+                        gimmeStyle("lime")
                       );
                       // open the next video assignment
                       openNext();

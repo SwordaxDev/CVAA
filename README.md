@@ -1,7 +1,7 @@
 # CVAA
 
 **Collegeboard Video Assignment Automator
-V1.0.3**
+V1.0.4**
 
 <img alt="CVAA Logo" src="/docs/cvaa-logo.png" width="200">
 
