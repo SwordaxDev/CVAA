@@ -2,7 +2,7 @@
   "project_info": {
     "project_name": "Collegeboard Video Assignment Automator",
     "project_acronym": "CVAA",
-    "project_version": "1.0.4",
+    "project_version": "1.0.5",
     "project_language": "JavaScript",
     "project_dev_start": "31 Dec, 2021",
     "project_dev_end": "2 Jan, 2022",
@@ -55,13 +55,15 @@
       "Grouped the assisting functions together",
       "Renamed the logStyle() function to be gimmeStyle() function to match other assisting functions naming style",
       "Published V1.0.4"
-    ]
+    ],
+    "9 Jan 2022": ["Modified the README.md file", "Published V1.0.5"]
   },
   "project_versions": {
     "V1.0.0": "First publish and initial version of the project [2 Jan, 2022]",
     "V1.0.1": "Fixed a bug and created an info.js file [3 Jan, 2022]",
     "V1.0.2": "Fixed a comment and changed credits log color [3 Jan, 2022]",
     "V1.0.3": "Made some insignificant fixes/changes in the code and converted info.js to info.json [4 Jan, 2022]",
-    "V1.0.4": "Added developer_info in info.json, and re-organized the code [6 Jan, 2022]"
+    "V1.0.4": "Added developer_info in info.json, and re-organized the code [6 Jan, 2022]",
+    "V1.0.5": "Modified the README.md file [9 Jan, 2022]"
   }
 }

@@ -1,18 +1,18 @@
 # CVAA
 
 **Collegeboard Video Assignment Automator
-V1.0.4**
+V1.0.5**
 
 <img alt="CVAA Logo" src="/docs/cvaa-logo.png" width="200">
 
 ## About
 
-CVAA (Collegeboard Video Assignment Automator) is a free open source software
-developed by Swordax, the software is written using JavaScript and is open source
+CVAA (Collegeboard Video Assignment Automator) is an automating tool
+developed by Swordax, the tool is written using JavaScript and is open source
 on github.
 
 **Repo: https://github.com/SwordaxDev/CVAA**<br>
-_Software code is valid as of Jan 2022, collegeboard site (https://www.collegeboard.org)_
+_Script code is valid as of Jan 2022, collegeboard site (https://www.collegeboard.org)_
 
 CVAA when ran in the console, automates running the video assignments on
 collegeboard AP courses, and makes sure all the assigned videos are completed.
@@ -54,10 +54,10 @@ fetch("https://raw.githubusercontent.com/SwordaxDev/CVAA/main/index.js")
 ## Handle Errors
 
 You might occasionally face some errors and unexpected actions, such as the
-software not running properly or the videos not playing. Something you could do
+program not running properly or the videos not playing. Something you could do
 that might sometimes fix such issues is refreshing the page and trying again.
 
-The software might not run properly if the collegeboard assignments looked
+The program might not run properly if the collegeboard assignments looked
 something like this:
 <br><br>
 ![invalid example 1](/docs/invalid-example-1.png)
