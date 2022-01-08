@@ -56,7 +56,11 @@
       "Renamed the logStyle() function to be gimmeStyle() function to match other assisting functions naming style",
       "Published V1.0.4"
     ],
-    "9 Jan 2022": ["Modified the README.md file", "Published V1.0.5"]
+    "9 Jan 2022": [
+      "Modified the README.md file",
+      "Changed the word 'software' to 'script' in the console logs",
+      "Published V1.0.5"
+    ]
   },
   "project_versions": {
     "V1.0.0": "First publish and initial version of the project [2 Jan, 2022]",

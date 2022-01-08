@@ -116,11 +116,11 @@
 
   // as program runs, log success message
   console.log(
-    `%cCVAA software version ${CVAA_VERSION} running successfully at ${gimmeTime()}`,
+    `%cCVAA script version ${CVAA_VERSION} running successfully at ${gimmeTime()}`,
     gimmeStyle("lime")
   );
   console.log(
-    "%cCVAA software developed by Swordax#5756\n%cGithub: https://github.com/SwordaxDev/\n%cSoftware Repo: https://github.com/SwordaxDev/CVAA",
+    "%cCVAA script developed by Swordax#5756\n%cGithub: https://github.com/SwordaxDev/\n%cSoftware Repo: https://github.com/SwordaxDev/CVAA",
     gimmeStyle("#17c0eb"),
     gimmeStyle("#17c0eb", 14),
     gimmeStyle("#17c0eb", 14)
