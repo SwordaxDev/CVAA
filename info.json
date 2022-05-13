@@ -1,73 +1,81 @@
 {
-  "project_info": {
-    "project_name": "Collegeboard Video Assignment Automator",
-    "project_acronym": "CVAA",
-    "project_version": "1.0.5",
-    "project_language": "JavaScript",
-    "project_dev_start": "31 Dec, 2021",
-    "project_dev_end": "2 Jan, 2022",
-    "project_dev_duration": "3 days"
-  },
-  "developer_info": {
-    "developer_name": "Swordax",
-    "developer_github": "https://github.com/SwordaxDev/",
-    "developer_discord": "Swordax#5756",
-    "developer_discord_": "https://discord.com/users/465453058667839499/"
-  },
-  "project_updates": {
-    "31 Dec, 2021": [
-      "Started developing the project",
-      "Planned for the project",
-      "Applied some theoritical testings on collegeboard site",
-      "Started developing the project on an online text editor for testing"
-    ],
-    "1 Jan, 2022": [
-      "Moved the project code to local development",
-      "Worked on the project",
-      "Started writing the README.md file",
-      "Took care of the github repo"
-    ],
-    "2 Jan, 2022": [
-      "Finalized the project code and the README.md file",
-      "Published the CVAA (V1.0.0) on github"
-    ],
-    "3 Jan, 2022": [
-      "Fixed a bug that could cause inaccurate action logging in the console",
-      "Created an info file",
-      "Published V1.0.1",
-      "Fixed a misleading comment in the code",
-      "Changed the credits log color",
-      "Published V1.0.2"
-    ],
-    "4 Jan, 2022": [
-      "Moved isPlaying function to the top area of the document above other functions",
-      "Modified intervals names to show relation and common functioning between them",
-      "Modified the logStyle() function to take a size parameter",
-      "Decreased the font-size of the links part in the credits log",
-      "Converted info.js content to JSON format and made it info.json",
-      "Fixed a mistake in one of 'project_versions' descriptions",
-      "Changes ## Features to ## Advantages in the README.md docs file",
-      "Published V1.0.3"
-    ],
-    "5 Jan, 2022": [
-      "Added developer_info property in the info.json file and included developer information",
-      "Re-ordered the code to be more organized",
-      "Grouped the assisting functions together",
-      "Renamed the logStyle() function to be gimmeStyle() function to match other assisting functions naming style",
-      "Published V1.0.4"
-    ],
-    "9 Jan 2022": [
-      "Modified the README.md file",
-      "Changed the word 'software' to 'script' in the console logs",
-      "Published V1.0.5"
-    ]
-  },
-  "project_versions": {
-    "V1.0.0": "First publish and initial version of the project [2 Jan, 2022]",
-    "V1.0.1": "Fixed a bug and created an info.js file [3 Jan, 2022]",
-    "V1.0.2": "Fixed a comment and changed credits log color [3 Jan, 2022]",
-    "V1.0.3": "Made some insignificant fixes/changes in the code and converted info.js to info.json [4 Jan, 2022]",
-    "V1.0.4": "Added developer_info in info.json, and re-organized the code [6 Jan, 2022]",
-    "V1.0.5": "Modified the README.md file [9 Jan, 2022]"
-  }
+    "project_info": {
+        "project_name": "ViewCB",
+        "project_description": "Collegeboard Video Assignment Automator",
+        "project_version": "1.1.0",
+        "project_language": "JavaScript",
+        "project_dev_start": "31 Dec, 2021",
+        "project_dev_end": "2 Jan, 2022",
+        "project_dev_duration": "3 days"
+    },
+    "developer_info": {
+        "developer": "Swordax",
+        "developer_website": "https://swordax.netlify.app",
+        "developer_at": "@swordax.sy",
+        "developer_github": "https://github.com/SwordaxSy/",
+        "developer_discord": "Swordax#5756",
+        "developer_discord_id": "https://discord.com/users/465453058667839499/"
+    },
+    "project_updates": {
+        "31_Dec_2021": [
+            "Started developing the project",
+            "Planned for the project",
+            "Applied some theoritical testings on collegeboard site",
+            "Started developing the project on an online text editor for testing"
+        ],
+        "1_Jan_2022": [
+            "Moved the project code to local development",
+            "Worked on the project",
+            "Started writing the README.md file",
+            "Took care of the github repo"
+        ],
+        "2_Jan_2022": [
+            "Finalized the project code and the README.md file",
+            "Published V1.0.0"
+        ],
+        "3_Jan_2022": [
+            "Fixed a bug that could cause inaccurate action logging in the console",
+            "Created an info file",
+            "Published V1.0.1",
+            "Fixed a misleading comment in the code",
+            "Changed the credits log color",
+            "Published V1.0.2"
+        ],
+        "4_Jan_2022": [
+            "Moved isPlaying function to the top area of the document above other functions",
+            "Modified intervals names to show relation and common functioning between them",
+            "Modified the logStyle() function to take a size parameter",
+            "Decreased the font-size of the links part in the credits log",
+            "Converted info.js content to JSON format and made it info.json",
+            "Fixed a mistake in one of 'project_versions' descriptions",
+            "Changes ## Features to ## Advantages in the README.md docs file",
+            "Published V1.0.3"
+        ],
+        "5_Jan_2022": [
+            "Added developer_info property in the info.json file and included developer information",
+            "Re-ordered the code to be more organized",
+            "Grouped the assisting functions together",
+            "Renamed the logStyle() function to be gimmeStyle() function to match other assisting functions naming style",
+            "Published V1.0.4"
+        ],
+        "9_Jan_2022": [
+            "Modified the README.md file",
+            "Changed the word 'software' to 'script' in the console logs",
+            "Published V1.0.5"
+        ],
+        "13_May_2022": [
+            "Improved code syntax and readibility",
+            "Changed program name from CVAA to ViewCB",
+            "Published V1.1.0"
+        ]
+    },
+    "project_versions": {
+        "V1.0.0": "First publish and initial version of the project [2 Jan, 2022]",
+        "V1.0.1": "Fixed a bug and created an info.js file [3 Jan, 2022]",
+        "V1.0.2": "Fixed a comment and changed credits log color [3 Jan, 2022]",
+        "V1.0.3": "Made some insignificant fixes/changes in the code and converted info.js to info.json [4 Jan, 2022]",
+        "V1.0.4": "Added developer_info in info.json, and re-organized the code [6 Jan, 2022]",
+        "V1.0.5": "Modified the README.md file [9 Jan, 2022]",
+        "V1.1.0": "Improved code, changed program name [13 May, 2022]"
+    }
 }

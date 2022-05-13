@@ -1,50 +1,49 @@
-# CVAA
+# ViewCB
 
 **Collegeboard Video Assignment Automator
-V1.0.5**
+V1.1.0**
 
-<img alt="CVAA Logo" src="/docs/cvaa-logo.png" width="200">
+<img alt="ViewCB Logo" src="/docs/viewcb-logo.png" width="200">
 
 ## About
 
-CVAA (Collegeboard Video Assignment Automator) is an automating tool
-developed by Swordax, the tool is written using JavaScript and is open source
-on github.
+ViewCB is an automating tool built to watch collegeboard AP classes video assignments,
+the tool is built by Swordax using JavaScript scripting language.
 
-**Repo: https://github.com/SwordaxDev/CVAA**<br>
-_Script code is valid as of Jan 2022, collegeboard site (https://www.collegeboard.org)_
+**Repo: https://github.com/SwordaxSy/ViewCB**<br>
+_Script code is valid as of May 2022, collegeboard site (https://www.collegeboard.org)_
 
-CVAA when ran in the console, automates running the video assignments on
-collegeboard AP courses, and makes sure all the assigned videos are completed.
+ViewCB when ran in the console, automates running the video assignments on
+collegeboard AP courses, and makes sure all the assigned videos are completed max speed.
 
 ## Mechanism
 
-- Finds the oldest un-completed video assignment in the assignments list
-- Selects the assignment and sets the video speed to x2
-- Plays the video when loaded
-- As video ends, selects the next un-completed video assignment and triggers it
-- As videos complete, CVAA keeps logging updates in the page devtools console
-- When all assigned videos are automatically triggered and completed on max speed, CVAA ends task
+-   Finds the oldest un-completed video assignment in the assignments list
+-   Selects the assignment and sets the video speed to x2
+-   Plays the video when loaded
+-   As video ends, selects the next un-completed video assignment and triggers it
+-   As videos complete, ViewCB keeps logging updates in the page devtools console
+-   When all assigned videos are automatically triggered and completed on max speed, ViewCB ends task
 
 ## Advantages
 
-- Assignments completion automation
-- Max speed performance
-- Simplicity of use
-- Instant action logger
-- Free to use & open source
+-   Assignments completion automation
+-   Max speed performance
+-   Simplicity of use
+-   Instant action logger
+-   Free to use & open source
 
 ## How to use
 
 1.  Open collegeboard AP classroom assignments page
-2.  Open the devtools by `right click` > `inspect` or by pressing the `f12` key
+2.  Open the devtools by `right click` -> `inspect` or by pressing the `f12` key
 3.  Select the console tab in the devtools
 4.  Paste the following code in the console
 
 ```js
-fetch("https://raw.githubusercontent.com/SwordaxDev/CVAA/main/index.js")
-  .then((res) => res.text())
-  .then((data) => eval(data));
+fetch("https://raw.githubusercontent.com/SwordaxSy/ViewCB/main/index.js")
+    .then((res) => res.text())
+    .then((data) => eval(data));
 ```
 
 5.  Press Enter
@@ -72,7 +71,7 @@ window, if your assignments now look like this, then you are good to go!
 
 ## Report Bugs
 
-If you encountered any bug while using the software (other than the issues mentioned
+If you encountered any bug while using the program (other than the issues mentioned
 in the handle errors section) then don't hesitate to report them to me directly by messaging
 me on discord, find me as Swordax#5756
 <br><br>[<img alt="Discord Logo" src="/docs/discord-logo.png" width="100">](https://discord.com/users/465453058667839499/)<br><br>
