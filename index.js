@@ -10,7 +10,7 @@
      * Current Code Production Date:    30 May, 2022
      */
 
-    // code valid as of May 2022 collegeboard site (collegeboard.org)
+    // code valid as of June 2022 collegeboard site (collegeboard.org)
 
     // variables
     const VIEWCB_VERSION = "1.1.1";
