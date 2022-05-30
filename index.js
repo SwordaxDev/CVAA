@@ -1,7 +1,7 @@
 (() => {
     /**
      * ViewCB (Collegeboard Video Assignment Automator)
-     * Developer by Swordax
+     * Developed by Swordax
      *      - my website:   https://swordax.netlify.app
      *      - my discord:   (Swordax#5756): https://discord.com/users/465453058667839499/
      *      - my github:    https://github.com/SwordaxSy
