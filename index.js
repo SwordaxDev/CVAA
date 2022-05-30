@@ -58,6 +58,19 @@
         };
     }
 
+    // check if video is playing
+    function isPlaying() {
+        const videoEl = document.querySelector(".w-video-wrapper video");
+        if (!videoEl) return false;
+
+        return !!(
+            videoEl.currentTime > 0 &&
+            !videoEl.paused &&
+            !videoEl.ended &&
+            videoEl.readyState > 2
+        );
+    }
+
     // get assignments names and branches
     const gimmeLesson = (state) => {
         let oldestChapter =
@@ -289,6 +302,16 @@
                                         // make sure video is playing
                                         const videoPlayer = setInterval(() => {
                                             videoEl.play();
+                                            if (!isPlaying()) {
+                                                const playButton =
+                                                    document.querySelector(
+                                                        ".w-big-play-button"
+                                                    );
+
+                                                if (playButton) {
+                                                    playButton.click();
+                                                }
+                                            }
                                         }, intervalTime);
 
                                         videoEl.addEventListener(
