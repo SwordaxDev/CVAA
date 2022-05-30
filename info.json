@@ -2,7 +2,7 @@
     "project_info": {
         "project_name": "ViewCB",
         "project_description": "Collegeboard Video Assignment Automator",
-        "project_version": "1.1.0",
+        "project_version": "1.1.1",
         "project_language": "JavaScript",
         "project_dev_start": "31 Dec, 2021",
         "project_dev_end": "2 Jan, 2022",
@@ -67,7 +67,8 @@
             "Improved code syntax and readibility",
             "Changed program name from CVAA to ViewCB",
             "Published V1.1.0"
-        ]
+        ],
+        "30_May_2022": ["Fixed some bugs in the code", "Published V1.1.1"]
     },
     "project_versions": {
         "V1.0.0": "First publish and initial version of the project [2 Jan, 2022]",
@@ -76,6 +77,7 @@
         "V1.0.3": "Made some insignificant fixes/changes in the code and converted info.js to info.json [4 Jan, 2022]",
         "V1.0.4": "Added developer_info in info.json, and re-organized the code [6 Jan, 2022]",
         "V1.0.5": "Modified the README.md file [9 Jan, 2022]",
-        "V1.1.0": "Improved code, changed program name [13 May, 2022]"
+        "V1.1.0": "Improved code, changed program name [13 May, 2022]",
+        "V1.1.1": "Fixed bugs [30 May, 2022]"
     }
 }

@@ -7,16 +7,16 @@
      *      - my github:    https://github.com/SwordaxSy
      *
      * Project Github Repo:             https://github.com/SwordaxSy/ViewCB
-     * Current Code Production Date:    13 May, 2022
+     * Current Code Production Date:    30 May, 2022
      */
 
     // code valid as of May 2022 collegeboard site (collegeboard.org)
 
     // variables
-    const VIEWCB_VERSION = "1.1.0";
-    const lessonsTitles = document.querySelectorAll(
-        ".StudentAssignments .assignment_title"
-    );
+    const VIEWCB_VERSION = "1.1.1";
+    const lessonsTitles = [
+        ...document.querySelectorAll(".StudentAssignments .assignment_title"),
+    ];
     const intervalTime = 500;
     let oldestBranch = (latestBranch = lessons = null);
 
@@ -133,19 +133,6 @@
         }
     };
 
-    // check if video is playing
-    function isPlaying() {
-        let videoEl = document.querySelector(".w-video-wrapper video");
-        let videoPlaying = !!(
-            videoEl.currentTime > 0 &&
-            !videoEl.paused &&
-            !videoEl.ended &&
-            videoEl.readyState > 2
-        );
-
-        return videoPlaying;
-    }
-
     // as program runs, log success message
     console.log(
         `%cViewCB script version ${VIEWCB_VERSION} running successfully at ${gimmeTime()}`,
@@ -172,27 +159,15 @@
     }
 
     // open oldest video assignment
-    lessonsTitles.forEach((title) => {
-        const oldestLessonTitle = gimmeLesson("oldest");
-
-        if (
+    const oldestLessonTitle = gimmeLesson("oldest");
+    const firstTitle = lessonsTitles.find((title) => {
+        return (
             title.innerText.split(":")[0] == oldestLessonTitle &&
             title.innerText.includes("Daily Video")
-        ) {
-            // trigger video
-            title.click();
-            triggerVideo(oldestLessonTitle, oldestBranch);
-
-            // check if video is playing
-            const videoChecker = setInterval(() => {
-                if (!isPlaying) {
-                    triggerVideo(oldestLessonTitle, oldestBranch);
-                } else {
-                    clearInterval(videoChecker);
-                }
-            }, intervalTime);
-        }
+        );
     });
+    firstTitle.click();
+    triggerVideo(oldestLessonTitle, oldestBranch);
 
     // open next video assignment
     let incBy = 1;
@@ -263,18 +238,6 @@
                             `${nextVideoChapter}.${nextVideoLesson}`,
                             nextVideoBranch
                         );
-
-                        // check if video is playing
-                        const videoChecker = setInterval(() => {
-                            if (!isPlaying) {
-                                triggerVideo(
-                                    `${nextVideoChapter}.${nextVideoLesson}`,
-                                    nextVideoBranch
-                                );
-                            } else {
-                                clearInterval(videoChecker);
-                            }
-                        }, intervalTime);
                     }
                 }, intervalTime);
             }
@@ -308,21 +271,25 @@
 
                         // play current video
                         const playBtnGetter = setInterval(() => {
-                            const playBtn = document.querySelector(
-                                "[title='Play Video']"
-                            );
+                            const playBtn =
+                                document.querySelector(".w-big-play-button");
 
                             if (playBtn) {
                                 clearInterval(playBtnGetter);
-                                playBtn.click();
 
                                 // check if video finished
                                 const videoGetter = setInterval(() => {
                                     const videoEl = document.querySelector(
                                         ".w-video-wrapper video"
                                     );
+
                                     if (videoEl) {
                                         clearInterval(videoGetter);
+
+                                        // make sure video is playing
+                                        const videoPlayer = setInterval(() => {
+                                            videoEl.play();
+                                        }, intervalTime);
 
                                         videoEl.addEventListener(
                                             "ended",
@@ -331,6 +298,7 @@
                                                     `%cViewCB: Lesson ${lessonTitle} Daily Video ${lessonBranch} is successfully completed at ${gimmeTime()}!`,
                                                     gimmeStyle("lime")
                                                 );
+                                                clearInterval(videoPlayer);
                                                 // open the next video assignment
                                                 openNext();
                                             }

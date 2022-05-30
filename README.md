@@ -1,7 +1,7 @@
 # ViewCB
 
 **Collegeboard Video Assignment Automator
-V1.1.0**
+V1.1.1**
 
 <img alt="ViewCB Logo" src="/docs/viewcb-logo.png" width="200">
 
@@ -11,7 +11,7 @@ ViewCB is an automating tool built to watch collegeboard AP classes video assign
 the tool is built by Swordax using JavaScript scripting language.
 
 **Repo: https://github.com/SwordaxSy/ViewCB**<br>
-_Script code is valid as of May 2022, collegeboard site (https://www.collegeboard.org)_
+_Script code is valid as of June 2022, collegeboard site (https://www.collegeboard.org)_
 
 ViewCB when ran in the console, automates running the video assignments on
 collegeboard AP courses, and makes sure all the assigned videos are completed max speed.
